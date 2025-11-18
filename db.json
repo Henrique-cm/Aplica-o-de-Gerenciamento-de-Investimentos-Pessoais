@@ -37,15 +37,25 @@
       "tempo": 12,
       "usuarioId": 1,
       "id": 3
+    },
+    {
+      "tipo": "CDB",
+      "valorInicial": 10000,
+      "valorMensal": "",
+      "rendimento": "2% a.m.",
+      "tempo": 12,
+      "usuarioId": 1,
+      "id": 4
+    },
+    {
+      "tipo": "LCI",
+      "valorInicial": 5000000,
+      "valorMensal": "",
+      "rendimento": "15% a.a.",
+      "tempo": 12,
+      "usuarioId": 1,
+      "id": 5
     }
   ],
-  "objetivos": [
-    {
-      "nome": "Carro novo",
-      "valor": 30000,
-      "prazo": 36,
-      "prioridade": "media",
-      "id": 1
-    }
-  ]
+  "objetivos": []
 }
