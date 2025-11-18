@@ -1,0 +1,51 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "nome": "Admin",
+      "email": "admin@email.com",
+      "senha": "123",
+      "cpf": "111.222.333-44",
+      "perfil": "Administrador",
+      "banco": "Banco Principal"
+    }
+  ],
+  "investimentos": [
+    {
+      "id": 1,
+      "usuarioId": 1,
+      "tipo": "CDB MAX",
+      "valorInicial": 1000,
+      "valorMensal": 100,
+      "rendimento": "110% CDI",
+      "tempo": 12
+    },
+    {
+      "tipo": "CDB",
+      "valorInicial": 30000,
+      "valorMensal": 200,
+      "rendimento": "15% a.a.",
+      "tempo": 36,
+      "usuarioId": 1,
+      "id": 2
+    },
+    {
+      "tipo": "CDB",
+      "valorInicial": 1000,
+      "valorMensal": 100,
+      "rendimento": "5000% CDI",
+      "tempo": 12,
+      "usuarioId": 1,
+      "id": 3
+    }
+  ],
+  "objetivos": [
+    {
+      "nome": "Carro novo",
+      "valor": 30000,
+      "prazo": 36,
+      "prioridade": "media",
+      "id": 1
+    }
+  ]
+}

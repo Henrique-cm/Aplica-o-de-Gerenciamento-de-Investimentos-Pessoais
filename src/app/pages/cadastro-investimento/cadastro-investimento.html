@@ -1,0 +1,61 @@
+<div class="form-container">
+
+  <h2>Cadastrar Novo Investimento</h2>
+
+  <form [formGroup]="investimentoForm" (ngSubmit)="cadastrar()">
+
+    <div class="form-group">
+      <label for="tipo">Tipo de Investimento:</label>
+      <input id="tipo" type="text" formControlName="tipo" class="form-control" placeholder="Ex: CDB, LCI, Fundo de Ações">
+      <div *ngIf="investimentoForm.get('tipo')?.invalid && investimentoForm.get('tipo')?.touched" class="error-text">
+        Tipo é obrigatório.
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="valorInicial">Valor Inicial (R$):</label>
+        <input id="valorInicial" type="number" formControlName="valorInicial" class="form-control" placeholder="1000.00">
+        <div *ngIf="investimentoForm.get('valorInicial')?.invalid && investimentoForm.get('valorInicial')?.touched" class="error-text">
+          Valor inicial é obrigatório.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="valorMensal">Valor Mensal (R$):</label>
+        <input id="valorMensal" type="number" formControlName="valorMensal" class="form-control" placeholder="100.00 (Opcional)">
+      </div>
+    </div>
+
+    <h4 class="section-title">Rendimento</h4>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="tipoRendimento">Tipo de Rendimento:</label>
+        <select id="tipoRendimento" formControlName="tipoRendimento" class="form-control">
+          <option value="cdi">% do CDI</option>
+          <option value="aa">Porcentagem ao Ano (a.a.)</option>
+          <option value="am">Porcentagem ao Mês (a.m.)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="valorRendimento">Valor (%):</label>
+        <input id="valorRendimento" type="number" formControlName="valorRendimento" class="form-control" placeholder="110">
+        <div *ngIf="investimentoForm.get('valorRendimento')?.invalid && investimentoForm.get('valorRendimento')?.touched" class="error-text">
+          Valor é obrigatório.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="tempo">Tempo (em meses):</label>
+      <input id="tempo" type="number" formControlName="tempo" class="form-control" placeholder="12">
+      <div *ngIf="investimentoForm.get('tempo')?.invalid && investimentoForm.get('tempo')?.touched" class="error-text">
+        Tempo é obrigatório.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="investimentoForm.invalid">Cadastrar</button>
+
+  </form>
+</div>

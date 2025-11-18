@@ -1,0 +1,279 @@
+:host {
+  --cor-principal: #0D2149;
+  --cor-acento: #98FB98;
+  --cor-texto: #333333;
+  --cor-fundo: #FFFFFF;
+  --cor-fundo-secao: #f9f9f9;
+  --cor-borda: #e0e0e0;
+  --cor-perigo: #d9534f;
+  /* Novas cores */
+  --cor-sucesso: #28a745;
+  --cor-prioridade-alta: #d9534f;
+  --cor-prioridade-media: #f0ad4e;
+  --cor-prioridade-baixa: #5bc0de;
+}
+
+.planning-container {
+  display: block;
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.planning-section {
+  background-color: var(--cor-fundo);
+  border-radius: 8px;
+  padding: 25px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+  color: var(--cor-principal);
+  font-size: 2.2rem;
+  margin-top: 0;
+  margin-bottom: 20px;
+  border-bottom: 3px solid var(--cor-acento);
+  padding-bottom: 8px;
+}
+
+h4 {
+  color: var(--cor-principal);
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.selic-info {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.section-divider {
+  border: 0;
+  border-top: 1px solid var(--cor-borda);
+  margin: 40px 0;
+}
+
+/* --- Tabela de Investimentos --- */
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.data-table th,
+.data-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.data-table th {
+  background-color: var(--cor-principal);
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.data-table tr:nth-child(even) {
+  background-color: var(--cor-fundo-secao);
+}
+
+.data-table tfoot {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: var(--cor-principal);
+  border-top: 2px solid var(--cor-principal);
+}
+
+.data-table strong {
+  color: var(--cor-principal);
+}
+
+/* --- Formulário de Objetivos --- */
+
+.form-container {
+  background-color: var(--cor-fundo-secao);
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid var(--cor-borda);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #444;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid var(--cor-borda);
+  border-radius: 4px;
+  box-sizing: border-box; /* Garante que padding não afete a largura */
+}
+
+.error-text {
+  color: var(--cor-perigo);
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+.empty-state {
+  color: #777;
+  font-style: italic;
+  padding: 15px;
+  background-color: var(--cor-fundo-secao);
+  border-radius: 4px;
+  text-align: center;
+}
+
+/* --- Botões --- */
+
+.btn {
+  padding: 10px 15px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary {
+  background-color: var(--cor-principal);
+  color: white;
+  width: 100%;
+}
+
+.btn-primary:hover {
+  background-color: #0F3B8A;
+}
+
+.btn-primary:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+.btn-delete {
+  background-color: var(--cor-perigo);
+  color: white;
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 5px 10px;
+  line-height: 1;
+}
+
+.btn-delete:hover {
+  background-color: #c9302c;
+}
+
+/* --- Lista de Objetivos Salvos --- */
+
+.list-title {
+  margin-top: 30px;
+}
+
+.objetivos-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.objetivo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.objetivo-item span {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.prioridade-tag {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 4px;
+  color: white;
+  font-size: 0.9em;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.prioridade-tag.alta { background-color: var(--cor-prioridade-alta); }
+.prioridade-tag.media { background-color: var(--cor-prioridade-media); }
+.prioridade-tag.baixa { background-color: var(--cor-prioridade-baixa); }
+
+
+/* --- NOVA SEÇÃO DE BALANÇO --- */
+
+.balance-section {
+  background-color: var(--cor-fundo-secao);
+  border: 1px solid var(--cor-borda);
+}
+
+.balance-details {
+  font-size: 1.2rem;
+}
+
+.balance-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.balance-item span {
+  color: var(--cor-texto);
+}
+
+.balance-item strong {
+  font-weight: 600;
+}
+
+.balance-divider {
+  border: 0;
+  border-top: 1px dashed var(--cor-borda);
+  margin: 10px 0;
+}
+
+.total-balance {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding-top: 10px;
+}
+
+.total-balance span {
+  color: var(--cor-principal);
+}
+
+.saldo-positivo {
+  color: var(--cor-sucesso);
+}
+
+.saldo-negativo {
+  color: var(--cor-perigo);
+}
+
+.balance-note {
+  margin-top: 15px;
+  font-style: italic;
+  color: #555;
+  text-align: center;
+}

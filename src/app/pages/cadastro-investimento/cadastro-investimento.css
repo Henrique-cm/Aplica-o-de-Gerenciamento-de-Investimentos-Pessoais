@@ -1,0 +1,101 @@
+:host {
+  --cor-principal: #0D2149;
+  --cor-acento: #98FB98;
+  --cor-texto: #333333;
+  --cor-fundo: #FFFFFF;
+  --cor-borda: #e0e0e0;
+  --cor-perigo: #d9534f;
+}
+
+.form-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px 40px;
+  background-color: var(--cor-fundo);
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  border-top: 5px solid var(--cor-principal);
+}
+
+h2 {
+  text-align: center;
+  color: var(--cor-principal);
+  font-size: 2.2rem;
+  margin-top: 0;
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+  border-bottom: 4px solid var(--cor-acento);
+}
+
+.section-title {
+  color: var(--cor-principal);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--cor-borda);
+  padding-bottom: 5px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  flex: 1;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: var(--cor-texto);
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid var(--cor-borda);
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Para alinhar campos lado a lado */
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.error-text {
+  color: var(--cor-perigo);
+  font-size: 0.9em;
+  margin-top: 6px;
+}
+
+/* --- Botão --- */
+
+.btn {
+  padding: 12px 15px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.btn-primary {
+  background-color: var(--cor-principal);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #0F3B8A;
+}
+
+.btn-primary:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}

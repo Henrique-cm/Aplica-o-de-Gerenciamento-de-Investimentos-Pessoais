@@ -1,0 +1,69 @@
+<div class="register-container">
+
+  <h2>Cadastro de Novo Usuário</h2>
+
+  <form [formGroup]="cadastroForm" (ngSubmit)="cadastrar()">
+
+    <div class="form-group">
+      <label for="nome">Nome:</label>
+      <input id="nome" type="text" formControlName="nome" class="form-control" placeholder="Seu nome completo">
+      <div *ngIf="cadastroForm.get('nome')?.invalid && cadastroForm.get('nome')?.touched" class="error-text">
+        Nome é obrigatório.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input id="email" type="email" formControlName="email" class="form-control" placeholder="seuemail@exemplo.com">
+      <div *ngIf="cadastroForm.get('email')?.errors?.['required'] && cadastroForm.get('email')?.touched" class="error-text">
+        Email é obrigatório.
+      </div>
+      <div *ngIf="cadastroForm.get('email')?.errors?.['email'] && cadastroForm.get('email')?.touched" class="error-text">
+        Formato de email inválido.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="senha">Senha:</label>
+      <input id="senha" type="password" formControlName="senha" class="form-control" placeholder="Mínimo 6 caracteres">
+      <div *ngIf="cadastroForm.get('senha')?.errors?.['required'] && cadastroForm.get('senha')?.touched" class="error-text">
+        Senha é obrigatória.
+      </div>
+      <div *ngIf="cadastroForm.get('senha')?.errors?.['minlength'] && cadastroForm.get('senha')?.touched" class="error-text">
+        A senha deve ter no mínimo 6 caracteres.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="cpf">CPF:</label>
+      <input id="cpf" type="text" formControlName="cpf" class="form-control" placeholder="000.000.000-00">
+      <div *ngIf="cadastroForm.get('cpf')?.invalid && cadastroForm.get('cpf')?.touched" class="error-text">
+        CPF é obrigatório.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="perfil">Perfil:</label>
+      <input id="perfil" type="text" formControlName="perfil" class="form-control" placeholder="Ex: Conservador, Moderado">
+      <div *ngIf="cadastroForm.get('perfil')?.invalid && cadastroForm.get('perfil')?.touched" class="error-text">
+        Perfil é obrigatório.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="banco">Banco principal:</label>
+      <input id="banco" type="text" formControlName="banco" class="form-control" placeholder="Nome do seu banco">
+      <div *ngIf="cadastroForm.get('banco')?.invalid && cadastroForm.get('banco')?.touched" class="error-text">
+        Banco é obrigatório.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="cadastroForm.invalid">Cadastrar</button>
+
+  </form>
+
+  <div class="login-link">
+    <p>Já tem uma conta? <a routerLink="/login">Faça o login aqui</a>.</p>
+  </div>
+
+</div>

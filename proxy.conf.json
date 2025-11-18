@@ -1,0 +1,10 @@
+{
+  "/api-bcb": {
+    "target": "https://api.bcb.gov.br",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api-bcb": ""
+    }
+  }
+}

@@ -1,0 +1,139 @@
+<main class="planning-container">
+
+  <section class="planning-section">
+    <h2>📈 Seus Investimentos (Balanço)</h2>
+    <p class="selic-info">
+      Taxa Selic/CDI atual (simulada):
+      <strong>{{ taxaSelicAtual | number:'1.2-2' }}%</strong>
+    </p>
+
+    <table class="data-table" *ngIf="investimentos.length > 0">
+      <thead>
+        <tr>
+          <th>Investimento</th>
+          <th>Rendimento</th>
+          <th>Aportado (R$)</th>
+          <th>Juros (R$)</th>
+          <th>Resultado Final (R$)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let invest of investimentos">
+          <td>{{ invest.tipo }}</td>
+          <td>{{ invest.rendimento }}</td>
+          <td>{{ invest.valorAportado | number:'1.2-2' }}</td>
+          <td>{{ invest.jurosSimulado | number:'1.2-2' }}</td>
+          <td><strong>{{ invest.resultadoFinal | number:'1.2-2' }}</strong></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="2"><strong>TOTAIS</strong></td>
+          <td><strong>{{ totalAportado | number:'1.2-2' }}</strong></td>
+          <td><strong>{{ totalJuros | number:'1.2-2' }}</strong></td>
+          <td><strong>{{ totalProjetado | number:'1.2-2' }}</strong></td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <p *ngIf="investimentos.length === 0" class="empty-state">
+      Nenhum investimento encontrado. (Cadastre um em "Novo Investimento")
+    </p>
+  </section>
+
+
+
+  <hr class="section-divider">
+
+  <section class="planning-section">
+    <h2>🏁 Seus Objetivos (Plano)</h2>
+
+    <form class="form-container" [formGroup]="objetivoForm" (ngSubmit)="cadastrarObjetivo()">
+      <h4>Cadastrar Novo Objetivo</h4>
+
+      <div class="form-group">
+        <label for="nome">Nome:</label>
+        <input id="nome" type="text" formControlName="nome" class="form-control">
+        <div *ngIf="objetivoForm.get('nome')?.invalid && (objetivoForm.get('nome')?.touched || objetivoForm.get('nome')?.dirty)" class="error-text">
+          Nome é obrigatório.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="valor">Valor (R$):</label>
+        <input id="valor" type="number" formControlName="valor" class="form-control">
+        <div *ngIf="objetivoForm.get('valor')?.invalid && (objetivoForm.get('valor')?.touched || objetivoForm.get('valor')?.dirty)" class="error-text">
+          Valor é obrigatório.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="prazo">Prazo (em meses):</label>
+        <input id="prazo" type="number" formControlName="prazo" class="form-control">
+        <div *ngIf="objetivoForm.get('prazo')?.invalid && (objetivoForm.get('prazo')?.touched || objetivoForm.get('prazo')?.dirty)" class="error-text">
+          Prazo é obrigatório (mínimo 1 mês).
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="prioridade">Prioridade:</label>
+        <select id="prioridade" formControlName="prioridade" class="form-control">
+          <option value="alta">Alta</option>
+          <option value="media">Média</option>
+          <option value="baixa">Baixa</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="objetivoForm.invalid">Cadastrar Objetivo</button>
+    </form>
+
+    <h4 class="list-title">Objetivos Salvos (Ordenados por Prioridade):</h4>
+    <ul class="objetivos-list" *ngIf="objetivos.length > 0">
+      <li *ngFor="let obj of objetivos" class="objetivo-item">
+        <span>
+          <strong>{{ obj.nome }}</strong> (R$ {{ obj.valor | number:'1.2-2' }} em {{ obj.prazo }} meses)
+          - Prioridade: <span class="prioridade-tag {{ obj.prioridade }}">{{ obj.prioridade }}</span>
+        </span>
+        <button (click)="deletarObjetivo(obj.id)" class="btn btn-delete">X</button>
+      </li>
+    </ul>
+    <p *ngIf="objetivos.length === 0" class="empty-state">
+      Nenhum objetivo cadastrado.
+    </p>
+  </section>
+
+    <!-- =============================================== -->
+  <!--               NOVO BLOCO DE BALANÇO             -->
+  <!-- =============================================== -->
+  <section class="planning-section balance-section">
+    <h2>💰 Balanço do Planejamento</h2>
+    <div class="balance-details">
+      <div class="balance-item">
+        <span>Total Projetado (Investimentos)</span>
+        <strong class="saldo-positivo">{{ totalProjetado | number:'1.2-2' }}</strong>
+      </div>
+      <div class="balance-item">
+        <span>Total Comprometido (Objetivos)</span>
+        <strong class="saldo-negativo">{{ totalObjetivos | number:'1.2-2' }}</strong>
+      </div>
+      <hr class="balance-divider">
+      <div class="balance-item total-balance">
+        <span>Saldo para novos objetivos:</span>
+        <strong [ngClass]="saldoPlanejamento >= 0 ? 'saldo-positivo' : 'saldo-negativo'">
+          {{ saldoPlanejamento | number:'1.2-2' }}
+        </strong>
+      </div>
+    </div>
+    <p class="balance-note" *ngIf="saldoPlanejamento >= 0">
+      Parabéns! Seus investimentos cobrem seus objetivos atuais.
+    </p>
+    <p class="balance-note" *ngIf="saldoPlanejamento < 0">
+      Atenção! Seus objetivos atuais são maiores que seus investimentos projetados.
+    </p>
+  </section>
+  <!-- =============================================== -->
+  <!--             FIM DO NOVO BLOCO                   -->
+  <!-- =============================================== -->
+
+
+</main>
